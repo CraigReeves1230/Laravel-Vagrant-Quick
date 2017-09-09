@@ -31,6 +31,7 @@ sudo cp nginx-config /etc/nginx/nginx.conf
 sudo service nginx restart
 sudo service nginx reload
 sudo cp preset-env .env
+sudo rm preset-env
 php artisan key:generate
 cd ..
 sudo chown -R www-data /vagrant
