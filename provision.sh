@@ -18,10 +18,15 @@ sudo apt-get install -y nginx
 sudo ufw allow 'Nginx HTTP'
 
 echo "-- Installing PHP and Composer --"
+sudo apt-get install -y software-properties-common
+sudo add-apt-repository ppa:ondrej/php
+sudo apt-get update
+sudo apt-get install -y php7.1
+sudo apt-cache search php7.1
+
 sudo apt install -y php7.1-fpm php7.1-mbstring php7.1-xml php7.1-mysql php7.1-common php7.1-gd php7.1-json php7.1-cli php7.1-curl
-sudo apt-get install -y php-zip
+sudo apt-get install -y php7.1-zip
 sudo systemctl start php7.1-fpm
-sudo apt-get install -y composer
 
 echo "-- Install and Start Laravel --"
 cd /vagrant
@@ -29,6 +34,9 @@ cd /vagrant
 # composer install
 wget https://getcomposer.org/download/1.6.3/composer.phar
 sudo mv composer.phar /usr/local/bin/composer
+
+#Install Laravel
+composer install
 
 sudo rm /etc/nginx/sites-available/default
 sudo rm /etc/nginx/nginx.conf
