@@ -38,6 +38,11 @@ sudo mv composer.phar /usr/local/bin/composer
 #Install Laravel
 composer install
 
+# mysql config
+sudo rm /etc/mysql/mysql.conf.d/mysqld.cnf
+sudo ln -s /vagrant/mysql_cnf /etc/mysql/mysql.conf.d/mysqld.cnf 
+sudo service mysql restart
+
 sudo rm /etc/nginx/sites-available/default
 sudo rm /etc/nginx/nginx.conf
 sudo ln -s /vagrant/nginx-default /etc/nginx/sites-available/default
