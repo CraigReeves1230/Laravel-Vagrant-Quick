@@ -33,6 +33,7 @@ cd /vagrant
 
 # composer install
 wget https://getcomposer.org/download/1.6.3/composer.phar
+sudo chmod 755 composer.phar
 sudo mv composer.phar /usr/local/bin/composer
 
 #Install Laravel
