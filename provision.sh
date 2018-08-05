@@ -55,6 +55,7 @@ sudo rm preset-env
 php artisan key:generate
 cd ..
 sudo chown -R www-data /vagrant
+sudo chmod -R 777 /vagrant/storage
 
 echo "-- Provisioning Complete! You will need perform your first migration. --"
 
