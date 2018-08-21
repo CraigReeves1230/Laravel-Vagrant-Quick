@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+\#!/usr/bin/env bash
 
 echo "-- Updating Apt-Get --"
 sudo apt-get update
@@ -52,14 +52,11 @@ sudo service nginx restart
 sudo service nginx reload
 sudo cp preset-env .env
 sudo rm preset-env
-php artisan key:generate
 cd ..
 sudo chown -R www-data /vagrant
 sudo chmod -R 777 /vagrant/storage
 
+sudo php artisan key:generate
+
 echo "-- Provisioning Complete! You will need perform your first migration. --"
-
-
-
-
 
