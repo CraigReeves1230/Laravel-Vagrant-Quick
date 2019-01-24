@@ -78,6 +78,7 @@ composer install
 npm install
 
 #Additional configurations and installations
+sudo npm install -g laravel-echo-server
 sudo cp bootstrap_js.js resources/js/bootstrap.js
 sudo cp app_js.js  resources/js/app.js
 sudo npm run dev
