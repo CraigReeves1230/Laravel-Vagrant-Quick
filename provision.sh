@@ -82,7 +82,7 @@ sudo npm install -g laravel-echo-server
 sudo cp bootstrap_js.js resources/js/bootstrap.js
 sudo cp app_js.js  resources/js/app.js
 sudo npm run dev
-sudo cp laravel-echo-server.service /etc/systemd/system/laravel-echo-server.service
+sudo cp laravel_echo_server_service /etc/systemd/system/laravel-echo-server.service
 sudo systemctl daemon-reload
 sudo service laravel-echo-server start
 
