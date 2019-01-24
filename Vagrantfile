@@ -7,5 +7,8 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "./", "/vagrant",
   owner: "www-data", group: "www-data"
   config.vm.provision "shell", path: "provision.sh"
+  config.vm.provider "virtualbox" do |v|
+              v.memory = 2048
+          end
 end
 
