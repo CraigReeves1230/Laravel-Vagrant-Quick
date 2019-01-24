@@ -42,6 +42,9 @@ tar xzvf redis-stable.tar.gz
 cd redis-stable
 make
 sudo make install
+cd /vagrant
+cd 
+sudo redis.conf 
 
 echo "-- Install PHP Redis --"
 cd /
@@ -58,19 +61,29 @@ sudo apt -y install php7.3-bcmath
 sudo ./configure --enable-redis-igbinary
 sudo service php7.3-fpm restart
 
-echo "-- Install and Start Laravel --"
 cd /vagrant
+sudo redis-server redis.conf
+
+echo "-- Install and Start Laravel --"
 
 # composer install
 wget https://getcomposer.org/download/1.6.3/composer.phar
 sudo chmod 755 composer.phar
 sudo mv composer.phar /usr/local/bin/composer
 
+#Install Laravel
+composer install
+
 # NPM install components
 npm install
 
-#Install Laravel
-composer install
+#Additional configurations and installations
+sudo cp bootstrap_js.js resources/js/bootstrap.js
+sudo cp app_js.js  resources/js/app.js
+sudo npm run dev
+sudo cp laravel-echo-server.service /etc/systemd/system/laravel-echo-server.service
+sudo systemctl daemon-reload
+sudo service laravel-echo-server start
 
 sudo rm /etc/nginx/sites-available/default
 sudo rm /etc/nginx/nginx.conf

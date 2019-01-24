@@ -1,0 +1,10 @@
+[Unit]
+Description=Laravel Echo Service
+
+[Service]
+WorkingDirectory=/vagrant
+ExecStart=/usr/bin/laravel-echo-server start
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
