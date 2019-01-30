@@ -22,7 +22,7 @@ echo "-- Installing NGinX --"
 sudo apt-get install -y nginx
 sudo ufw allow 'Nginx HTTP'
 
-echo "-- Installing PHP and Composer --"
+echo "-- Installing PHP --"
 sudo apt-get install -y software-properties-common
 sudo add-apt-repository ppa:ondrej/php
 sudo apt-get update
@@ -46,7 +46,7 @@ cd /vagrant
 cd 
 sudo redis.conf 
 
-echo "-- Install PHP Redis --"
+echo "-- Install PHPRedis --"
 cd /
 sudo apt-get -y install php7.3-dev
 sudo apt-get -y install unzip
@@ -64,7 +64,7 @@ sudo service php7.3-fpm restart
 cd /vagrant
 sudo redis-server redis.conf
 
-echo "-- Install and Start Laravel --"
+echo "-- Install Composer and Laravel --"
 
 # composer install
 wget https://getcomposer.org/download/1.6.3/composer.phar
