@@ -96,6 +96,7 @@ cd ..
 sudo chown -R www-data /vagrant
 sudo chmod -R 777 /vagrant/storage
 
+cd /vagrant
 sudo php artisan key:generate
 
 echo "-- Provisioning Complete! You will need perform your first migration. --"
