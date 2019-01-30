@@ -16,6 +16,7 @@ python-software-properties libffi-dev beanstalkd
 cd ~
 curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
+sudo apt-get update
 sudo apt-get install -y nodejs
 
 echo "-- Installing NGinX --"
