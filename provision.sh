@@ -43,8 +43,6 @@ cd redis-stable
 make
 sudo make install
 cd /vagrant
-cd 
-sudo redis.conf 
 
 echo "-- Install PHPRedis --"
 cd /
