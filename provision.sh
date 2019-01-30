@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+"-- install Nodejs --"
+cd ~
+curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt-get install -y nodejs
+
 echo "-- Updating Apt-Get --"
 sudo apt-get update
 
@@ -11,13 +17,6 @@ echo "-- Installing git, Java and other dependencies --"
 sudo apt-get -y install vim lsof git-core default-jre curl zlib1g-dev build-essential
 libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev
 python-software-properties libffi-dev beanstalkd
-
-"-- install Nodejs --"
-cd ~
-curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
-sudo bash nodesource_setup.sh
-sudo apt-get update
-sudo apt-get install -y nodejs
 
 echo "-- Installing NGinX --"
 sudo apt-get install -y nginx
