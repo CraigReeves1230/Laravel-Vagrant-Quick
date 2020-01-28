@@ -28,10 +28,10 @@ sudo add-apt-repository ppa:ondrej/php
 sudo apt-get update
 sudo apt-get install -y php7.3
 sudo apt-cache search php7.3
-
 sudo apt install -y php7.3-fpm php7.3-mbstring php7.3-xml php7.3-pgsql php7.3-opcache php-mongodb php7.3-common php7.3-gd php7.3-json php7.3-cli php7.3-curl
 sudo apt-get install -y php7.3-zip
-sudo systemctl start php7.3-fpm
+sudo update-alternatives --set php /usr/bin/php7.3
+sudo service php7.3-fpm restart
 
 echo "-- Installing Redis --"
 sudo apt-get update
@@ -57,6 +57,17 @@ sudo ln -s /etc/php/7.3/mods-available/redis.ini /etc/php/7.3/fpm/conf.d/redis.i
 sudo ln -s /etc/php/7.3/mods-available/redis.ini /etc/php/7.3/cli/conf.d/redis.ini
 sudo apt -y install php7.3-bcmath
 sudo ./configure --enable-redis-igbinary
+
+echo "-- Install XDebug --"
+cd /
+pecl install xdebug
+sudo echo "zend_extension=/usr/lib/php/20180731/xdebug.so" >> /etc/php/7.3/fpm/php.ini
+sudo echo "xdebug.remote_enable = 1" >> /etc/php/7.3/fpm/php.ini
+sudo echo "xdebug.remote_port = 9000" >> /etc/php/7.3/fpm/php.ini
+sudo echo "xdebug.remote_port = PHPSTORM" >> /etc/php/7.3/fpm/php.ini
+sudo echo "xdebug.show_error_trace = 1" >> /etc/php/7.3/fpm/php.ini
+sudo echo "xdebug.remote_autostart = 0" >> /etc/php/7.3/fpm/php.ini
+sudo echo "xdebug.remote_connect_back = 1" >> /etc/php/7.3/fpm/php.ini
 sudo service php7.3-fpm restart
 
 cd /vagrant
